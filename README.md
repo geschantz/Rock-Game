@@ -1,38 +1,36 @@
-# Overview
-Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic game, Rock-Paper-Scissors.
+# Rock-Game
+Rock-Game is short for Rock-Paper-Scissors-Lizard-Spock.
 
-It’s a recreation of Rock-Paper-Scissors with Lizard and Spock as additional features.
+## Project Description
+Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic game, Rock-Paper-Scissors. It’s a recreation of Rock-Paper-Scissors with Lizard and Spock as additional features. In Rock-Game, the player competes against the computer.
 
-The player competes against the computer.
+## How To Play?
 
-## Rules
+### Instead of 3 choices, players choose from 5:
+* 🪨 Rock
+* 📄 Paper
+* ✂️ Scissors
+* 🦎 Lizard
+* 🖖 Spock
 
-- Scissors cuts Paper
+### What Beats What?
+* Scissors cuts Paper
+* Paper covers Rock
+* Rock crushes Lizard
+* Lizard poisons Spock
+* Spock smashes Scissors
+* Scissors decapitates Lizard
+* Lizard eats Paper
+* Paper disproves Spock
+* Spock vaporizes Rock
+* Rock crushes Scissors
+* If both players choose the same option → Tie
 
-- Paper covers Rock
+## Code Structure
 
-- Rock crushes Lizard
-
-- Lizard poisons Spock
-
-- Spock smashes Scissors
-
-- Scissors decapitates Lizard
-
-- Lizard eats Paper
-
-- Paper disproves Spock
-
-- Spock vaporizes Rock
-
-- Rock crushes Scissors
-
-- If both players choose the same option → Tie
-
-## Game Breakdown
-### Game Setup
+### Game Introduction
 - Display welcome message
-- Explanation of the rules
+- Display rules
 - Clear console
 
 ### Simple Gameplay
