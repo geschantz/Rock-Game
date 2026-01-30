@@ -39,9 +39,9 @@ The player competes against the computer.
 
 1. Ask the user if they want to play or not
 
-2. Randomly generate a choice for the computer from:  RO, PA, SC, LZ, SP
+2. Randomly generate a choice for the computer from:  r, p, s, l, k
 
-3. Ask the player for a choice: RO, PA, SC, LZ, SP
+3. Ask the player for a choice: r, p, s, l, k
 
 4. Counts from Rock… Paper… Scissors… Lizard… Spock
 5. Determines the winner
