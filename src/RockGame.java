@@ -1,5 +1,5 @@
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
 public class RockGame {
 
@@ -33,14 +33,6 @@ public class RockGame {
     public String input;
     boolean validInput = true;
 
-    public RockGame() {
-
-        Scanner scanner = new Scanner(System.in);
-        this.pregameMessages();
-        this.isReady();
-        this.getValidInput("rock");
-    }
-
     enum Action {
 
         ROCK,
@@ -50,6 +42,14 @@ public class RockGame {
         SPOCK,
         UNDEFINED,
     };
+
+    public RockGame() {
+
+        Scanner scanner = new Scanner(System.in);
+        this.pregameMessages();
+        this.isReady();
+        this.getValidInput("rock");
+    }
 
     public void pregameMessages(){
 
