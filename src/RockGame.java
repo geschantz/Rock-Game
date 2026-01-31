@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class RockGame {
@@ -83,4 +84,15 @@ public class RockGame {
         }
         return userAction;
     }
+
+    public static char optionRandomizer() {
+        String options = "rpslk";
+
+        Random random = new Random();
+
+        int randomIndex = random.nextInt(options.length());
+
+        return options.charAt(randomIndex);
+    }
+
 }
