@@ -48,7 +48,7 @@ public class RockGame {
         Scanner scanner = new Scanner(System.in);
         this.pregameMessages();
         this.isReady();
-        this.getValidInput("rock");
+        this.getValidAction("rock");
     }
 
     public void pregameMessages(){
@@ -63,7 +63,7 @@ public class RockGame {
         return false;
     }
 
-    public Action getValidInput(String input) {
+    public Action getValidAction(String input) {
 
         input = input.toUpperCase();
         boolean validInput = true;
