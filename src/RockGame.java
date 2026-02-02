@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class RockGame {
 
-    public static final String WELCOME_MESSAGE = "WELCOME TO ROCK PAPER SCISSORS LIZARD SPOCK.";
+    public static final String WELCOME_MESSAGE = "WELCOME TO ROCK PAPER SCISSORS LIZARD SPOCK.\n";
     public static final String RULES_MESSAGE = """
             Rules:
             
@@ -28,10 +28,12 @@ public class RockGame {
             Rock crushes Scissors
 
             If both players choose the same option → Tie
+            
                 """;
-    public static final String READY_MESSAGE = "Press any key to continue...";
-    public String input;
-    boolean validInput = true;
+    public static final String READY_MESSAGE = "Press any key to continue...\n";
+    public static final String ORIGINAL_PROMPT = "Rock! Paper! Scissors! Lizard! Spock! →";
+    String input = null;
+    Scanner scanner = new Scanner(System.in);
 
     enum Action {
 
@@ -45,10 +47,10 @@ public class RockGame {
 
     public RockGame() {
 
-        Scanner scanner = new Scanner(System.in);
         this.pregameMessages();
         this.isReady();
-        this.getValidAction("rock");
+        this.getInputString();
+        this.getValidAction();
     }
 
     public void pregameMessages(){
@@ -63,22 +65,31 @@ public class RockGame {
         return false;
     }
 
-    public Action getValidAction(String input) {
+    public String getInputString() {
 
-        input = input.toUpperCase();
+        System.out.println(ORIGINAL_PROMPT);
+        input = scanner.nextLine();
+        return input;
+    }
+
+    public Action getValidAction() {
+
         boolean validInput = true;
         Action userAction = null;
 
         while (true) {
 
             if (!validInput) {
-                System.out.printf("'%s' is not acceptable input", input);
+                System.out.printf("'%s' is not an acceptable action\n", input);
+                getInputString();
                 validInput = true;
             }
             try {
-                userAction =  Action.valueOf(input);
+                String inputUpperCase = input.toUpperCase();
+                userAction =  Action.valueOf(inputUpperCase);
                 break;
             } catch (IllegalArgumentException e) {
+                validInput = false;
                 userAction =  Action.UNDEFINED;
             }
         }
@@ -94,5 +105,4 @@ public class RockGame {
 
         return options.charAt(randomIndex);
     }
-
 }
