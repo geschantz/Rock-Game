@@ -37,7 +37,7 @@ public class RockGame {
 
     enum Action {
 
-        ROCK,
+        ROCK(),
         PAPER,
         SCISSORS,
         LIZARD,
@@ -96,13 +96,16 @@ public class RockGame {
         return userAction;
     }
 
-    public static char optionRandomizer() {
-        String options = "rpslk";
+    public Action getComputerAction () {
+
+        Action[] actions = Action.values();
 
         Random random = new Random();
 
-        int randomIndex = random.nextInt(options.length());
+        int randomActionIndex = random.nextInt(actions.length);
 
-        return options.charAt(randomIndex);
+        Action randomAction = actions[randomActionIndex];
+
+        return randomAction;
     }
 }
