@@ -35,7 +35,7 @@ Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic g
 
 ### Simple Gameplay
 
-1. Ask the user if they want to play or not
+1. Ask the user if they are ready to play or not
 
 2. Ask the player for a choice: r, p, s, l, k
 
@@ -43,7 +43,7 @@ Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic g
 
 4. Counts from Rock… Paper… Scissors… Lizard… Spock
 5. Determines the winner
-6. Displays test-based graphics of the computer’s answer and the user’s answer
+6. Displays text-based graphics of the computer’s answer and the user’s answer
 Declares winner (e.g. “Scissors cuts Paper. You win!”)
 
 7. Ask the user to play again (Input “play”) or see the rules (Input “rules”)
