@@ -33,9 +33,8 @@ public class RockGame {
             Rock crushes Scissors
 
             If both players choose the same option → Tie
-            
                 """;
-    public static final String READY_MESSAGE = "Press any key to continue...\n";
+    public static final String READY_MESSAGE = "Enter 'ready' to continue";
     public static final String ORIGINAL_PROMPT = "Rock! Paper! Scissors! Lizard! Spock! →";
     String input = null;
     Scanner scanner = new Scanner(System.in);
@@ -94,7 +93,8 @@ public class RockGame {
     public RockGame() {
 
         this.pregameMessages();
-        this.isReady();
+        this.readyToProceed();
+        scanner.nextLine();
         this.getInputString();
         this.userAction = this.getValidAction();
     }
@@ -105,10 +105,28 @@ public class RockGame {
         System.out.println(RULES_MESSAGE);
     }
 
-    public boolean isReady() {
+    public void readyToProceed() {
 
-        System.out.println(READY_MESSAGE);
-        return false;
+        String readyString = null;
+        boolean isReady = false;
+
+        while (true) {
+            if (!isReady) {
+                System.out.println(READY_MESSAGE);
+                readyString = scanner.next();
+                isReady = true;
+            }
+
+            if ("ready".equals(readyString)) {
+                //clear console
+                isReady = true;
+                break;
+            } else {
+                //clear console
+                System.out.println(RULES_MESSAGE);
+                isReady = false;
+            }
+        }
     }
 
     public String getInputString() {
