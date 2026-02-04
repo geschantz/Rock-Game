@@ -75,9 +75,9 @@ public class RockGame {
     }
 
     public enum Result {
-        WIN(" you beat "),
-        LOSE(" you lost to "),
-        TIE(" you tied with ");
+        WIN(" You beat: "),
+        LOSE(" You lost to: "),
+        TIE(" You tied with: ");
 
         private final String message;
 
