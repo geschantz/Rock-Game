@@ -34,23 +34,54 @@ public class RockGame {
     public static final String ORIGINAL_PROMPT = "Rock! Paper! Scissors! Lizard! Spock! →";
     String input = null;
     Scanner scanner = new Scanner(System.in);
+    Action userAction = null;
 
     enum Action {
-
-        ROCK(),
+        ROCK,
         PAPER,
         SCISSORS,
         LIZARD,
         SPOCK,
-        UNDEFINED,
-    };
+        UNDEFINED;
+
+        public Result compareAction(Action computerAction) {
+
+            if (this == computerAction) {
+                return Result.TIE;
+            }
+
+            int diff = (this.ordinal() - computerAction.ordinal() + 5) % 5;
+
+            if (diff == 1 || diff == 3) {
+                return Result.WIN;
+            } else {
+                return Result.LOSE;
+            }
+        }
+    }
+
+    public enum Result {
+        WIN(" you beat "),
+        LOSE(" you lost to "),
+        TIE(" you tied with ");
+
+        private final String message;
+
+        Result(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+    }
 
     public RockGame() {
 
         this.pregameMessages();
         this.isReady();
         this.getInputString();
-        this.getValidAction();
+        this.userAction = this.getValidAction();
     }
 
     public void pregameMessages(){
@@ -102,10 +133,17 @@ public class RockGame {
 
         Random random = new Random();
 
-        int randomActionIndex = random.nextInt(actions.length);
+        int randomActionIndex = random.nextInt(actions.length-1);
 
         Action randomAction = actions[randomActionIndex];
 
         return randomAction;
+    }
+
+    public void runGame() {
+        Action computerAction = getComputerAction();
+        Result result = this.userAction.compareAction(computerAction);
+
+        System.out.println(result + result.getMessage() + computerAction);
     }
 }
