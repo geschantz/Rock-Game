@@ -1,5 +1,10 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class RockGame {
 
@@ -46,18 +51,28 @@ public class RockGame {
 
         public Result compareAction(Action computerAction) {
 
-            if (this == computerAction) {
-                return Result.TIE;
-            }
+            Map<Action, Set<Action>> gameRules = createWinningMap();
 
-            int diff = (this.ordinal() - computerAction.ordinal() + 5) % 5;
-
-            if (diff == 1 || diff == 3) {
+            if (gameRules.get(this).contains(computerAction)) {
                 return Result.WIN;
+            } else if (this == computerAction) {
+                return Result.TIE;
             } else {
                 return Result.LOSE;
             }
         }
+    }
+
+    public static Map<Action, Set<Action>> createWinningMap() {
+        Map<Action, Set<Action>> winningMap = new HashMap<>();
+
+        winningMap.put(Action.ROCK, new HashSet<>(Arrays.asList(Action.SCISSORS, Action.LIZARD)));
+        winningMap.put(Action.PAPER, new HashSet<>(Arrays.asList(Action.ROCK, Action.SPOCK)));
+        winningMap.put(Action.SCISSORS, new HashSet<>(Arrays.asList(Action.PAPER, Action.LIZARD)));
+        winningMap.put(Action.LIZARD, new HashSet<>(Arrays.asList(Action.PAPER, Action.SPOCK)));
+        winningMap.put(Action.SPOCK, new HashSet<>(Arrays.asList(Action.ROCK, Action.SCISSORS)));
+
+        return winningMap;
     }
 
     public enum Result {
