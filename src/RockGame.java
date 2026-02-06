@@ -9,10 +9,10 @@ import java.util.Set;
 
 public class RockGame {
 
-    public static final String WELCOME_MESSAGE = "WELCOME TO ROCK PAPER SCISSORS LIZARD SPOCK.\n";
+    public static final String WELCOME_MESSAGE = "\nWELCOME TO ROCK PAPER SCISSORS LIZARD SPOCK.";
     public static final String RULES_MESSAGE = """
-            Rules:
             
+            Rules:
             - Scissors cuts Paper and decapitates Lizard
             - Paper covers Rock and disproves Spock
             - Rock crushes Scissors and crushes Lizard
@@ -25,6 +25,7 @@ public class RockGame {
     String input = null;
     Scanner scanner = new Scanner(System.in);
     Action userAction = null;
+    static Result result = null;
 
     enum Action {
         ROCK,
@@ -61,7 +62,7 @@ public class RockGame {
 
     public enum Result {
         WIN("\nYou beat the computer's "),
-        LOSE("\nYou lost to the computer's"),
+        LOSE("\nYou lost to the computer's "),
         TIE("\nYou tied with the computer's ");
 
         private final String message;
@@ -76,11 +77,6 @@ public class RockGame {
     }
 
     public RockGame() {
-
-        this.pregameMessages();
-        this.readyToProceed();
-        this.getInputString();
-        this.userAction = this.getValidAction();
     }
 
     public void pregameMessages(){
@@ -135,8 +131,13 @@ public class RockGame {
     }
 
     public void runGame() {
+
+        this.pregameMessages();
+        this.readyToProceed();
+        this.getInputString();
+        this.userAction = this.getValidAction();
         Action computerAction = getComputerAction();
-        Result result = this.userAction.compareAction(computerAction);
+        result = this.userAction.compareAction(computerAction);
 
         System.out.println(result.getMessage() + computerAction);
     }
