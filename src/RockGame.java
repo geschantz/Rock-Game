@@ -28,11 +28,52 @@ public class RockGame {
     static Result result = null;
 
     enum Action {
-        ROCK,
-        PAPER,
-        SCISSORS,
-        LIZARD,
-        SPOCK;
+        ROCK("""
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+"""),
+        PAPER("""
+    ________
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+"""),
+        SCISSORS("""
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""),
+        LIZARD("""
+---.___________
+        _______)
+---.________)
+"""),
+        SPOCK("""
+    ⌠⌒|
+ ⌠⌒⌉| |   ◜﹆◜﹆
+ | ||⩧|  / // /
+ |_|| | /-//=/
+ | || |/ // /
+ ( || | // /
+ |         .______
+ |         __⫫____)
+  |       |
+""");
+
+        private String asciiArt;
+
+        Action(String asciiArt) {
+            this.asciiArt = asciiArt;
+        }
 
         public Result compareAction(Action computerAction) {
 
@@ -130,6 +171,17 @@ public class RockGame {
         return randomAction;
     }
 
+    public void wait(int milliseconds) {
+        try {
+            // Wait for 1000 milliseconds (1 second)
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            // Handle the exception if the thread is interrupted while sleeping
+            e.printStackTrace();
+        }
+    }
+
+
     public void runGame() {
 
         this.pregameMessages();
@@ -138,7 +190,9 @@ public class RockGame {
         this.userAction = this.getValidAction();
         Action computerAction = getComputerAction();
         result = this.userAction.compareAction(computerAction);
-
+        System.out.println(this.userAction.asciiArt);
+        System.out.println(computerAction.asciiArt);
+        this.wait(1000);
         System.out.println(result.getMessage() + computerAction);
     }
 }
