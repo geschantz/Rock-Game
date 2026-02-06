@@ -14,37 +14,12 @@ Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic g
 * 🖖 Spock
 
 ### What Beats What?
-* Scissors cuts Paper
-* Paper covers Rock
-* Rock crushes Lizard
-* Lizard poisons Spock
-* Spock smashes Scissors
-* Scissors decapitates Lizard
-* Lizard eats Paper
-* Paper disproves Spock
-* Spock vaporizes Rock
-* Rock crushes Scissors
+Scissors cuts Paper and decapitates Lizard 
+* Paper covers Rock and disproves Spock 
+* Rock crushes Scissors and crushes Lizard
+* Lizard eats Paper and poisons Spock
+* Spock smashes Scissors and Spock vaporizes Rock   
 * If both players choose the same option → Tie
 
 ## Code Structure
-
-### Game Introduction
-- Display welcome message
-- Display rules
-- Clear console
-
-### Simple Gameplay
-
-1. Ask the user if they are ready to play or not
-
-2. Ask the player for a choice: r, p, s, l, k
-
-3. Randomly generate a choice for the computer from:  r, p, s, l, k
-
-4. Counts from Rock… Paper… Scissors… Lizard… Spock
-5. Determines the winner
-6. Displays text-based graphics of the computer’s answer and the user’s answer
-Declares winner (e.g. “Scissors cuts Paper. You win!”)
-
-7. Ask the user to play again (Input “play”) or see the rules (Input “rules”)
 

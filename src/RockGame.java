@@ -1,3 +1,4 @@
+import javax.management.openmbean.TabularData;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
@@ -12,30 +13,15 @@ public class RockGame {
     public static final String RULES_MESSAGE = """
             Rules:
             
-            Scissors cuts Paper
-            
-            Paper covers Rock
-            
-            Rock crushes Lizard
-                
-            Lizard poisons Spock
-                
-            Spock smashes Scissors
-                
-            Scissors decapitates Lizard
-                
-            Lizard eats Paper
-                
-            Paper disproves Spock
-                
-            Spock vaporizes Rock
-                
-            Rock crushes Scissors
-
-            If both players choose the same option → Tie
+            - Scissors cuts Paper and decapitates Lizard
+            - Paper covers Rock and disproves Spock
+            - Rock crushes Scissors and crushes Lizard
+            - Lizard eats Paper and poisons Spock
+            - Spock smashes Scissors and Spock vaporizes Rock   
+            - If both players choose the same option → Tie
                 """;
-    public static final String READY_MESSAGE = "Enter 'ready' to continue";
-    public static final String ORIGINAL_PROMPT = "Rock! Paper! Scissors! Lizard! Spock! →";
+    public static final String READY_MESSAGE = "Press enter to continue";
+    public static final String ORIGINAL_PROMPT = "Type one of the following: rock, paper, scissors, lizard or spock \n";
     String input = null;
     Scanner scanner = new Scanner(System.in);
     Action userAction = null;
@@ -45,8 +31,7 @@ public class RockGame {
         PAPER,
         SCISSORS,
         LIZARD,
-        SPOCK,
-        UNDEFINED;
+        SPOCK;
 
         public Result compareAction(Action computerAction) {
 
@@ -75,9 +60,9 @@ public class RockGame {
     }
 
     public enum Result {
-        WIN(" You beat: "),
-        LOSE(" You lost to: "),
-        TIE(" You tied with: ");
+        WIN("You beat "),
+        LOSE("You lost to "),
+        TIE("You tied with ");
 
         private final String message;
 
@@ -94,7 +79,6 @@ public class RockGame {
 
         this.pregameMessages();
         this.readyToProceed();
-        scanner.nextLine();
         this.getInputString();
         this.userAction = this.getValidAction();
     }
@@ -107,26 +91,8 @@ public class RockGame {
 
     public void readyToProceed() {
 
-        String readyString = null;
-        boolean isReady = false;
-
-        while (true) {
-            if (!isReady) {
-                System.out.println(READY_MESSAGE);
-                readyString = scanner.next();
-                isReady = true;
-            }
-
-            if ("ready".equals(readyString)) {
-                //clear console
-                isReady = true;
-                break;
-            } else {
-                //clear console
-                System.out.println(RULES_MESSAGE);
-                isReady = false;
-            }
-        }
+        System.out.println(READY_MESSAGE);
+        String readyString = scanner.nextLine();
     }
 
     public String getInputString() {
@@ -154,7 +120,6 @@ public class RockGame {
                 break;
             } catch (IllegalArgumentException e) {
                 validInput = false;
-                userAction =  Action.UNDEFINED;
             }
         }
         return userAction;
@@ -163,13 +128,9 @@ public class RockGame {
     public Action getComputerAction () {
 
         Action[] actions = Action.values();
-
         Random random = new Random();
-
-        int randomActionIndex = random.nextInt(actions.length-1);
-
+        int randomActionIndex = random.nextInt(actions.length);
         Action randomAction = actions[randomActionIndex];
-
         return randomAction;
     }
 
@@ -177,6 +138,6 @@ public class RockGame {
         Action computerAction = getComputerAction();
         Result result = this.userAction.compareAction(computerAction);
 
-        System.out.println(result + result.getMessage() + computerAction);
+        System.out.println(result.getMessage() + computerAction);
     }
 }
