@@ -21,7 +21,7 @@ public class RockGame {
             - If both players choose the same option → Tie
                 """;
     public static final String READY_MESSAGE = "Press enter to continue";
-    public static final String ORIGINAL_PROMPT = "Type one of the following: rock, paper, scissors, lizard or spock \n";
+    public static final String ORIGINAL_PROMPT = "\nType one of the following: rock, paper, scissors, lizard or spock";
     String input = null;
     Scanner scanner = new Scanner(System.in);
     Action userAction = null;
@@ -60,9 +60,9 @@ public class RockGame {
     }
 
     public enum Result {
-        WIN("You beat "),
-        LOSE("You lost to "),
-        TIE("You tied with ");
+        WIN("\nYou beat the computer's "),
+        LOSE("\nYou lost to the computer's"),
+        TIE("\nYou tied with the computer's ");
 
         private final String message;
 
