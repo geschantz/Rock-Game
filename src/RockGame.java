@@ -26,6 +26,7 @@ public class RockGame {
     Action userAction = null;
     Result result = null;
 
+    //Enum which contains possible ASCII art
     enum Action {
         ROCK("""
     _______
@@ -87,7 +88,7 @@ public class RockGame {
             }
         }
     }
-
+    //Creates a hashmap which shows the relationship between different actions
     public static Map<Action, Set<Action>> createWinningMap() {
         Map<Action, Set<Action>> winningMap = new HashMap<>();
 
@@ -100,6 +101,7 @@ public class RockGame {
         return winningMap;
     }
 
+    //Enum which contains possible results
     public enum Result {
         WIN("\nYou beat the computer's "),
         LOSE("\nYou lost to the computer's "),
@@ -116,6 +118,7 @@ public class RockGame {
         }
     }
 
+    //RockGame constructor
     public RockGame() {
     }
 
@@ -138,6 +141,7 @@ public class RockGame {
         return input;
     }
 
+    //Gets the user's action
     public Action getValidAction() {
 
         boolean validInput = true;
@@ -161,6 +165,7 @@ public class RockGame {
         return userAction;
     }
 
+    //Randomly generates the computer action
     public Action getComputerAction () {
 
         Action[] actions = Action.values();
