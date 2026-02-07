@@ -16,22 +16,30 @@ public class Main {
 
         while (playAgain) {
             updateScore(game.runGame());
-
             input = promptUserForInput("\nWould you like to play again? (Y/N)");
+            playAgain = isPlayAgain(true);
+            printFinalScore();
+        }
+    }
 
-            if (input.equals("Y")) {
+    private static boolean isPlayAgain(boolean playAgain) {
+        if (input.equals("Y")) {
+            playAgain = true;
+        } else if (input.equals("N")) {
+            printFinalScore();
+            playAgain = false;
+        } else {
+            while (!input.equals("Y") && !input.equals("N")) {
+                input = promptUserForInput("Enter Y/N");
+            }
+
+            if  (input.equals("Y")) {
                 playAgain = true;
             } else if (input.equals("N")) {
                 printFinalScore();
-                playAgain = false;
-            } else {
-                while (!input.equals("Y") && !input.equals("N")) {
-                    input = promptUserForInput("Enter Y/N");
-                }
-                if (input.equals("Y")) {playAgain = true;} else {playAgain = false;}
-
             }
         }
+        return playAgain;
     }
 
     private static void updateScore(RockGame.Result result) {
