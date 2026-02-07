@@ -23,9 +23,8 @@ public class RockGame {
     public static final String READY_MESSAGE = "Press enter to continue";
     public static final String ORIGINAL_PROMPT = "\nType one of the following: rock, paper, scissors, lizard or spock";
     String input = null;
-    Scanner scanner = new Scanner(System.in);
     Action userAction = null;
-    static Result result = null;
+    Result result = null;
 
     enum Action {
         ROCK("""
@@ -129,13 +128,13 @@ public class RockGame {
     public void readyToProceed() {
 
         System.out.println(READY_MESSAGE);
-        String readyString = scanner.nextLine();
+        String readyString = Main.scanner.nextLine();
     }
 
     public String getInputString() {
 
         System.out.println(ORIGINAL_PROMPT);
-        input = scanner.nextLine();
+        input = Main.scanner.nextLine();
         return input;
     }
 
@@ -171,7 +170,7 @@ public class RockGame {
         return randomAction;
     }
 
-    public void wait(int milliseconds) {
+    private void wait(int milliseconds) {
         try {
             // Wait for 1000 milliseconds (1 second)
             Thread.sleep(milliseconds);
@@ -182,8 +181,7 @@ public class RockGame {
     }
 
 
-    public void runGame() {
-
+    public Result runGame() {
         this.pregameMessages();
         this.readyToProceed();
         this.getInputString();
@@ -194,5 +192,6 @@ public class RockGame {
         System.out.println(computerAction.asciiArt);
         this.wait(1000);
         System.out.println(result.getMessage() + computerAction);
+        return result;
     }
 }
