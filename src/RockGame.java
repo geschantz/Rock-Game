@@ -187,8 +187,10 @@ public class RockGame {
 
 
     public Result runGame() {
-        this.pregameMessages();
-        this.readyToProceed();
+        if (Main.numOfRounds == 0) {
+            this.pregameMessages();
+            this.readyToProceed();
+        }
         this.getInputString();
         this.userAction = this.getValidAction();
         Action computerAction = getComputerAction();

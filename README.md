@@ -25,7 +25,7 @@ Scissors cuts Paper and decapitates Lizard
 
 ### Main.java
 
-The main method creates an instance of the RockGame class, which returns a result that allows the main method to increment the scores of either the user or the player until the player decides to leave.
+The main method creates an instance of the RockGame class, which returns a result that allows the main method to increment the scores of either the user or the computer until the player decides to leave.
 
 ### RockGame.java
 
@@ -41,7 +41,7 @@ It contains specific methods such as:
 * compareAction()
 * plus necessary outputs
 
-The main method will run runGame() everytime the user want to play Rock Paper Scissors Lizard Spock.
+The main method will run runGame() everytime the user wants to play Rock Paper Scissors Lizard Spock.
 
 ### Additional Important Elements
 

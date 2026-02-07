@@ -53,7 +53,7 @@ public class Main {
             numOfTies += 1;
         }
 
-        System.out.printf("\nWins: %s, Losses: %s, Ties: %s\n", numOfWins, numOfLosses, numOfTies);
+        System.out.printf("\nRounds: %s Wins: %s, Losses: %s, Ties: %s\n", numOfRounds, numOfWins, numOfLosses, numOfTies);
     }
 
     //Print a prompt and gets input from the user
