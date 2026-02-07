@@ -23,9 +23,36 @@ Scissors cuts Paper and decapitates Lizard
 
 ## Code Structure
 
-### Main Method
+### Main.java
 
-The main method creates an instance of the RockGame class, which returns a result that allows the main method to increment the score.
+The main method creates an instance of the RockGame class, which returns a result that allows the main method to increment the scores of either the user or the player until the player decides to leave.
 
+### RockGame.java
 
+The bulk of the code is run through runGame() which is run in the main function to access the result of the game.
 
+It contains specific methods such as:
+
+* pregameMessages()
+* readyToProceed()
+* getInputString()
+* getValidAction()
+* getComputerAction()
+* compareAction()
+* plus necessary outputs
+
+The main method will run runGame() everytime the user want to play Rock Paper Scissors Lizard Spock.
+
+### Additional Important Elements
+
+#### Result
+
+The enum that stores the three results: WIN, LOSS, and TIE
+
+#### Action
+
+The enum used to store each action (ROCK, PAPER, SCISSORS, LIZARD, and SPOCK) with their corresponding ascii art. The method of this enum, compareAction(), allows for the user and computer action to be compared and for return value of type Result.
+
+#### createWinningMap()
+
+The HashMap that stores an action with the corresponding actions that they win against. It is used to create a new HashMap in compareAction() in order to return the correct result.
