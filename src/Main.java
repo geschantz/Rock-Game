@@ -70,7 +70,7 @@ public class Main {
         if (numOfWins > numOfLosses) {
             System.out.printf("\nYou won overall! You beat the computer %s times out of %s.\n", numOfWins, numOfRounds);
         } else if (numOfLosses > numOfWins) {
-            System.out.printf("\nYou lost overall. The computer beat you  %s times out of %s.\n", numOfLosses, numOfRounds);
+            System.out.printf("\nYou lost overall. The computer beat you %s times out of %s.\n", numOfLosses, numOfRounds);
         } else {
             System.out.printf("\nYou tied overall. The score was  %s-%s.\n", numOfWins, numOfLosses);
         }
