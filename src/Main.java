@@ -14,11 +14,13 @@ public class Main {
 
         RockGame game = new RockGame();
 
+        // Overall while loop which runs the program
         while (playAgain) {
             updateScore(game.runGame());
 
             input = promptUserForInput("\nWould you like to play again? (Y/N)");
 
+            // Checks if the user wants to play again
             if (input.equals("Y")) {
                 playAgain = true;
             } else if (input.equals("N")) {
@@ -39,6 +41,7 @@ public class Main {
         }
     }
 
+    //Updates the score of the user based on whether the user wins, loses, or ties with the computer
     private static void updateScore(RockGame.Result result) {
         if (result == RockGame.Result.WIN) {
             numOfWins += 1;
@@ -53,6 +56,7 @@ public class Main {
         System.out.printf("\nWins: %s, Losses: %s, Ties: %s\n", numOfWins, numOfLosses, numOfTies);
     }
 
+    //Print a prompt and gets input from the user
     private static String promptUserForInput(String prompt) {
         String input;
         System.out.println(prompt);
@@ -61,6 +65,7 @@ public class Main {
         return input;
     }
 
+    //Prints the final score
     private static void printFinalScore() {
         if (numOfWins > numOfLosses) {
             System.out.printf("\nYou won overall! You beat the computer %s times out of %s.\n", numOfWins, numOfRounds);
