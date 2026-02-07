@@ -23,3 +23,9 @@ Scissors cuts Paper and decapitates Lizard
 
 ## Code Structure
 
+### Main Method
+
+The main method creates an instance of the RockGame class, which returns a result that allows the main method to increment the score.
+
+
+

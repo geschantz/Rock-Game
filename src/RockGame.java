@@ -17,9 +17,9 @@ public class RockGame {
             - Paper covers Rock and disproves Spock
             - Rock crushes Scissors and crushes Lizard
             - Lizard eats Paper and poisons Spock
-            - Spock smashes Scissors and Spock vaporizes Rock   
+            - Spock smashes Scissors and Spock vaporizes Rock
             - If both players choose the same option → Tie
-                """;
+            """;
     public static final String READY_MESSAGE = "Press enter to continue";
     public static final String ORIGINAL_PROMPT = "\nType one of the following: rock, paper, scissors, lizard or spock";
     String input = null;
@@ -60,12 +60,12 @@ public class RockGame {
         SPOCK("""
     ⌠⌒|
  ⌠⌒⌉| |   ◜﹆◜﹆
- | ||⩧|  / // /
- |_|| | /-//=/
+ | || |  / // /
+ | || | / // /
  | || |/ // /
  ( || | // /
- |         .______
- |         __⫫____)
+ |         _______
+ |         _______)
   |       |
 """);
 
