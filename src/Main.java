@@ -51,9 +51,10 @@ public class Main {
             numOfRounds += 1;
         } else if (result == RockGame.Result.TIE) {
             numOfTies += 1;
+            numOfRounds += 1;
         }
 
-        System.out.printf("\nRound(s): %s Wins: %s, Losses: %s, Ties: %s\n", numOfRounds, numOfWins, numOfLosses, numOfTies);
+        System.out.printf("\nRound(s): %s, Wins: %s, Losses: %s, Ties: %s\n", numOfRounds, numOfWins, numOfLosses, numOfTies);
     }
 
     //Print a prompt and gets input from the user
@@ -68,9 +69,9 @@ public class Main {
     //Prints the final score
     private static void printFinalScore() {
         if (numOfWins > numOfLosses) {
-            System.out.printf("\nYou won overall! You beat the computer %s times out of %s.\n", numOfWins, numOfRounds);
+            System.out.printf("\nYou won overall! You beat the computer %s times out of %s total round(s).\n", numOfWins, numOfRounds);
         } else if (numOfLosses > numOfWins) {
-            System.out.printf("\nYou lost overall. The computer beat you %s times out of %s.\n", numOfLosses, numOfRounds);
+            System.out.printf("\nYou lost overall. The computer beat you %s times out of %s total round(s).\n", numOfLosses, numOfRounds);
         } else {
             System.out.printf("\nYou tied overall. The score was  %s-%s.\n", numOfWins, numOfLosses);
         }
