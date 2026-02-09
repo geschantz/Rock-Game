@@ -12,9 +12,11 @@ public class Main {
     public static void main(String[] args) {
         boolean playAgain = true;
 
+        // initializes a specific instance of the `RockGame` class and assigns it to the variable `game`.
+
         RockGame game = new RockGame();
 
-        // Overall while loop which runs the program
+        // runs a while loop until the user wishes to exit the game.
         while (playAgain) {
             updateScore(game.runGame());
 
@@ -57,7 +59,7 @@ public class Main {
         System.out.printf("\nRound(s): %s, Wins: %s, Losses: %s, Ties: %s\n", numOfRounds, numOfWins, numOfLosses, numOfTies);
     }
 
-    //Print a prompt and gets input from the user
+    //Print a prompt and gets input from the user and converts it to uppercase
     private static String promptUserForInput(String prompt) {
         String input;
         System.out.println(prompt);
