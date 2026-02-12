@@ -88,6 +88,7 @@ public class RockGame {
             }
         }
     }
+
     //Creates a hashmap which shows the relationship between different actions
     public static Map<Action, Set<Action>> createWinningMap() {
         Map<Action, Set<Action>> winningMap = new HashMap<>();

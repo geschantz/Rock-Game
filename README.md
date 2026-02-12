@@ -21,6 +21,8 @@ Rock–Paper–Scissors–Lizard–Spock is an expanded version of the classic g
 * **Spock** smashes **Scissors** and **Spock** vaporizes **Rock**   
 * If both players choose the same action → **Tie**
 
+
+
 ## Code Structure
 
 ### Main Class (Main.java)
@@ -32,7 +34,7 @@ The main method:
 
 It contains specific methods such as:
 
-#### updateScore()
+### updateScore()
 The function `updateScore()` updates the static variables `numOfWins`, `numOfLosses`, `numOfTies`, and `numOfRounds`, which are printed in the console after each round.
 `RockGame.Result` is the enum returned by the class `RockGame`. It is passed into `updateScore` with the name `result`.
 The function updates the score based on the value of `result`. 
@@ -40,12 +42,12 @@ Possible value are `WIN`, `LOSE`, and `TIE`.
 
 **NOTE**: `game.runGame()` is simultaneously called and passed into `updateScore` because it returns the result of the round.
 
-#### promptUserForInput()
+### promptUserForInput()
 The function `promptUserForInput` prints the string, which is passed into the function, in the console.
 It also takes in the user input in the console and assigns it to the variable `input`.
 It also converts `input` to uppercase using the method `.toUpperCase()`.
 
-##### printFinalScore()
+### printFinalScore()
 The function `printFinalScore()` prints message in the console when the user has decided to exit the game.
 The message depends on whether the user won, lost, or tied with the computer.
 

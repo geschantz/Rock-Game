@@ -71,9 +71,9 @@ public class Main {
     //Prints the final score
     private static void printFinalScore() {
         if (numOfWins > numOfLosses) {
-            System.out.printf("\nYou won overall! You beat the computer %s times out of %s total round(s).\n", numOfWins, numOfRounds);
+            System.out.printf("\nYou won overall! You beat the computer %s time(s) out of %s total round(s).\n", numOfWins, numOfRounds);
         } else if (numOfLosses > numOfWins) {
-            System.out.printf("\nYou lost overall. The computer beat you %s times out of %s total round(s).\n", numOfLosses, numOfRounds);
+            System.out.printf("\nYou lost overall. The computer beat you %s time(s) out of %s total round(s).\n", numOfLosses, numOfRounds);
         } else {
             System.out.printf("\nYou tied overall. The score was  %s-%s.\n", numOfWins, numOfLosses);
         }
