@@ -80,3 +80,6 @@ The enum used to store each action (ROCK, PAPER, SCISSORS, LIZARD, and SPOCK) wi
 #### createWinningMap()
 
 The hashmap that stores an action with the corresponding actions that it wins against. It is used to create a new HashMap in compareAction() in order to return the correct result.
+
+### Challenges
+The biggest challenges included: incorporating a class other than the main class, learning how to create objects, and learning how to work with enums and hashmaps.
